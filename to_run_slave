@@ -1,0 +1,33 @@
+pipeline {
+
+    agent any
+
+
+
+    environment {
+
+        JAVA_HOME = '/path/to/java'
+
+        PATH = "/path/to/git:${env.PATH}"
+
+        TMPDIR = '/path/to/tmp'
+
+    }
+
+
+
+    stages {
+
+        stage('Build') {
+
+            steps {
+
+                sh 'mvn clean install'
+
+            }
+
+        }
+
+    }
+
+}
